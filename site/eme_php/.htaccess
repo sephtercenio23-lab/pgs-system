@@ -1,0 +1,12 @@
+# NOTE: Do NOT use the "Options" directive here (e.g. Options -Indexes).
+# InfinityFree does not allow it in .htaccess and it makes the WHOLE site
+# return "500 Internal Server Error".
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Send every URL that is not a real file/folder (e.g. /student/2024-0001, /reports) to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>

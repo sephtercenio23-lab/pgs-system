@@ -1,0 +1,362 @@
+[
+    {
+        "id": "69e5c12d-2b05-427c-a736-f0836bb04279",
+        "timestamp": "2026-02-23T13:56:25.480940",
+        "user": "admin",
+        "action": "LOGIN",
+        "details": "User admin logged in",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "291fce6c-c7f5-45de-85dc-dbc60bfffb67",
+        "timestamp": "2026-02-23T13:58:25.074089",
+        "user": "admin",
+        "action": "LOGIN",
+        "details": "User admin logged in",
+        "student_id": null,
+        "ip": "127.0.0.1"
+    },
+    {
+        "id": "ec273ac7-917c-45e4-9f0e-b169320ec176",
+        "timestamp": "2026-02-23T14:09:21.048178",
+        "user": "admin",
+        "action": "LOGOUT",
+        "details": "User admin logged out",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "113d24ac-49e8-462f-92c7-47f493ff24fa",
+        "timestamp": "2026-02-23T14:09:28.620608",
+        "user": "admin",
+        "action": "LOGIN",
+        "details": "User admin logged in",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "7f10d7d1-9bcb-4df9-88e9-793b7d257bab",
+        "timestamp": "2026-02-23T14:21:59.881894",
+        "user": "admin",
+        "action": "DELETE_STUDENT",
+        "details": "Deleted student cvxcvxcb, zcvxcb (56467)",
+        "student_id": "56467",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "249434c5-9e16-46cc-8538-3ccc484e11e1",
+        "timestamp": "2026-02-23T14:34:37.629429",
+        "user": "admin",
+        "action": "ADD_MANUAL_SUBJECT",
+        "details": "Added 9090 (Pre-requisite)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "487ed9e6-9d12-4487-a29c-5ad4858dba67",
+        "timestamp": "2026-02-23T14:36:18.792878",
+        "user": "admin",
+        "action": "UPDATE_GRADE",
+        "details": "Updated grade for THW I: 90.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "12ce98d1-b2a3-438a-a7f5-906d62e65904",
+        "timestamp": "2026-02-23T14:38:54.110914",
+        "user": "admin",
+        "action": "DELETE_STUDENT",
+        "details": "Deleted student kkhbhbhb, hguguh (64352432)",
+        "student_id": "64352432",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "99d9a2ef-f0e2-438e-a8bd-0d86602699a0",
+        "timestamp": "2026-02-23T14:53:33.946491",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 545: 76.0 -> 80.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "4d423eb4-e789-4e69-94e1-146ec5f18cde",
+        "timestamp": "2026-02-23T14:53:44.235294",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 45767: 78.0 -> 78.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "b08fdf2f-b6be-46e6-a597-9ea456ec35cf",
+        "timestamp": "2026-02-23T14:53:48.877121",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 5178: 86.0 -> 86.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "1cecc65b-72f5-4033-a373-ec6d70c057f2",
+        "timestamp": "2026-02-23T14:53:53.186183",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 45767: 78.0 -> 86.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "14ab3b87-93e9-493c-bfb3-d0a3aa4dc3da",
+        "timestamp": "2026-02-23T14:54:04.626312",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 45767: 86.0 -> 86.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "c15e1780-11d5-4e54-83f8-18b979eb2618",
+        "timestamp": "2026-02-23T14:54:10.461599",
+        "user": "admin",
+        "action": "DELETE_MANUAL_SUBJECT",
+        "details": "Deleted 45767",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "867fbdaf-3f36-4bcc-8066-201bf2b39fa2",
+        "timestamp": "2026-02-23T14:54:47.395368",
+        "user": "admin",
+        "action": "ADD_MANUAL_SUBJECT",
+        "details": "Added 6767 (Bridging) with grade 75.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "a58896ba-56a1-4464-949c-58c4705eeae5",
+        "timestamp": "2026-02-23T14:55:13.440856",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 545: 80.0 -> 74.0 (Failed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "fc4bcc46-b2b1-46e2-a8a3-d68a7030c2e4",
+        "timestamp": "2026-02-23T14:55:31.961186",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 5178: 86.0 -> 86.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "928d2920-5b44-4507-a6ce-d16c41aa7020",
+        "timestamp": "2026-02-23T14:55:54.215061",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 9090: 90.0 -> 90.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "534f614e-0560-49cd-86fb-3a9cde67fdad",
+        "timestamp": "2026-02-23T14:56:09.509614",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 9090: 90.0 -> 90.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "af37ea9c-ab40-4623-aded-49c29605db7d",
+        "timestamp": "2026-02-23T14:56:48.598402",
+        "user": "admin",
+        "action": "UPDATE_GRADE",
+        "details": "Updated grade for MRR: 89.0 (Passed)",
+        "student_id": "2024-0001",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "1843b912-9bfe-41a5-9292-8ae599d70ecf",
+        "timestamp": "2026-02-23T14:59:46.092516",
+        "user": "admin",
+        "action": "LOGOUT",
+        "details": "User admin logged out",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "789bd226-b576-41a0-a3d9-6bfeeac85d16",
+        "timestamp": "2026-02-23T14:59:53.115395",
+        "user": "admin",
+        "action": "LOGIN",
+        "details": "User admin logged in",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "ba3a8375-e0b3-4c1a-9045-5fb8120bdf3b",
+        "timestamp": "2026-02-23T15:04:13.428247",
+        "user": "admin",
+        "action": "UPDATE_MANUAL_SUBJECT",
+        "details": "Updated 545: 74.0 -> 80.0 (Passed)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "01279432-0cb7-4444-a878-cdcd2f2c7609",
+        "timestamp": "2026-02-23T15:05:30.951492",
+        "user": "admin",
+        "action": "LOGOUT",
+        "details": "User admin logged out",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "5cfc5268-0fc8-4c84-9927-0c4eba30267f",
+        "timestamp": "2026-02-23T15:05:35.453593",
+        "user": "admin",
+        "action": "LOGIN",
+        "details": "User admin logged in",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "c03d02ac-f619-4a6a-b852-20da95470d30",
+        "timestamp": "2026-02-23T15:06:13.801614",
+        "user": "admin",
+        "action": "ADD_USER",
+        "details": "Created user iPraise with role admin",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "b1e019e3-d169-42bc-b9f8-26aabf49030a",
+        "timestamp": "2026-02-23T15:06:28.834200",
+        "user": "admin",
+        "action": "LOGOUT",
+        "details": "User admin logged out",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "23bc6123-149d-47e1-8dc2-ca0f9ddb2abe",
+        "timestamp": "2026-02-23T15:06:38.652417",
+        "user": "iPraise",
+        "action": "LOGIN",
+        "details": "User iPraise logged in",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "19f50ae5-9fcb-4294-8944-50a8d26afcf7",
+        "timestamp": "2026-02-23T15:11:02.630941",
+        "user": "iPraise",
+        "action": "UPDATE_CHECKLIST",
+        "details": "Updated requirements checklist",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "f878cffa-58dc-4cbd-86b1-2ab8907bde7b",
+        "timestamp": "2026-02-23T15:11:07.501022",
+        "user": "iPraise",
+        "action": "UPDATE_CHECKLIST",
+        "details": "Updated requirements checklist",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "49bf7035-1433-425e-b2b4-14a3d639bf9c",
+        "timestamp": "2026-02-23T15:47:51.261702",
+        "user": "iPraise",
+        "action": "IMPORT_CSV",
+        "details": "Imported 2 students, skipped 3",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "2afcc785-d16e-44e2-8732-2705b9c5a77c",
+        "timestamp": "2026-02-23T15:48:08.475732",
+        "user": "iPraise",
+        "action": "DELETE_STUDENT",
+        "details": "Deleted student carbinel, elj (43534646)",
+        "student_id": "43534646",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "dc12dc36-9795-4239-b011-7757a56cce41",
+        "timestamp": "2026-02-23T15:48:12.715875",
+        "user": "iPraise",
+        "action": "DELETE_STUDENT",
+        "details": "Deleted student Clara, Maria (2024-0002)",
+        "student_id": "2024-0002",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "309ce551-8227-4dde-837d-260c0a90b7dd",
+        "timestamp": "2026-02-23T15:48:16.068459",
+        "user": "iPraise",
+        "action": "DELETE_STUDENT",
+        "details": "Deleted student Dela Cruz, Juan (2024-0001)",
+        "student_id": "2024-0001",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "fd1bae10-c6c4-489a-9025-0252c9dddd0b",
+        "timestamp": "2026-02-23T15:48:19.413019",
+        "user": "iPraise",
+        "action": "DELETE_STUDENT",
+        "details": "Deleted student kkhbhbhb, hguguh (64352432)",
+        "student_id": "64352432",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "628f7eb9-df0b-4c1f-ae9d-6453de9c6221",
+        "timestamp": "2026-02-23T15:48:22.739243",
+        "user": "iPraise",
+        "action": "DELETE_STUDENT",
+        "details": "Deleted student Rizal, Jose (2024-0003)",
+        "student_id": "2024-0003",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "90a33e3c-fea9-4321-8fc4-e37b3668c483",
+        "timestamp": "2026-02-23T15:48:26.817323",
+        "user": "iPraise",
+        "action": "IMPORT_CSV",
+        "details": "Imported 5 students, skipped 0",
+        "student_id": null,
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "88431b7e-3cbf-4aff-bc32-990324e33355",
+        "timestamp": "2026-02-23T15:52:00.298420",
+        "user": "iPraise",
+        "action": "UPDATE_GRADE",
+        "details": "Updated grade for PIC 300: 100.0 (Passed)",
+        "student_id": "2024-0003",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "f8ece529-d117-4213-b739-824043c388ac",
+        "timestamp": "2026-02-23T15:52:07.558871",
+        "user": "iPraise",
+        "action": "UPDATE_GRADE",
+        "details": "Updated grade for PhDPA 301: 90.0 (Passed)",
+        "student_id": "2024-0003",
+        "ip": "192.168.18.29"
+    },
+    {
+        "id": "1cc89f3f-7c86-4ea7-ada9-d0d7e3e0c223",
+        "timestamp": "2026-02-23T15:52:18.908350",
+        "user": "iPraise",
+        "action": "UPDATE_GRADE",
+        "details": "Updated grade for PhDPA 307: 90.0 (Passed)",
+        "student_id": "2024-0003",
+        "ip": "192.168.18.29"
+    }
+]
