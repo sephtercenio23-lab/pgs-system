@@ -2,101 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Audit Log</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Log | Graduate School</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f1f5f9;
-            margin: 0;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        .btn-back {
-            padding: 10px 20px;
-            background: #3b82f6;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-        table {
-            width: 100%;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-collapse: collapse;
-        }
-        th {
-            background: #1e293b;
-            color: white;
-            padding: 1rem;
-            text-align: left;
-        }
-        td {
-            padding: 1rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        tr:hover {
-            background: #f8fafc;
-        }
-        .timestamp {
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-        .action-add { color: #10b981; font-weight: 600; }
-        .action-delete { color: #ef4444; font-weight: 600; }
-        .action-update { color: #3b82f6; font-weight: 600; }
-    </style>
+    <link href="<?= url('/static/app.css') ?>" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1><i class="fas fa-history"></i> Audit Log</h1>
-            <a href="<?= url('/settings') ?>" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Back
-            </a>
+<body class="page-audit">
+    <div class="app-body">
+        <?php $active = 'audit'; include __DIR__ . '/_sidebar.php'; ?>
+
+        <div class="main">
+            <header class="topbar">
+                <button class="sidebar-toggle" onclick="App.toggleSidebar()"><i class="fas fa-bars"></i></button>
+                <div class="titles">
+                    <h1><i class="fas fa-history" style="color: var(--brand);"></i> Audit Log</h1>
+                    <p class="subtitle">Latest system activity (last 100 entries).</p>
+                </div>
+            </header>
+
+            <div class="content-container">
+                <div class="card" style="padding: 8px 0;">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Details</th>
+                                    <th>Student ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $__n1 = 0; foreach ($logs as $log): $__n1++; ?>
+                                <tr>
+                                    <td class="timestamp"><?= h(pv(isset($log['timestamp']) ? $log['timestamp'] : null)) ?></td>
+                                    <td class="cell-name"><strong><?= h(pv(isset($log['user']) ? $log['user'] : null)) ?></strong></td>
+                                    <td class="action-<?= h(strtolower(explode('_', $log['action'])[0])) ?>">
+                                        <?= h(pv(isset($log['action']) ? $log['action'] : null)) ?>
+                                    </td>
+                                    <td><?= h(pv(isset($log['details']) ? $log['details'] : null)) ?></td>
+                                    <td><?= h(truthy(isset($log['student_id']) ? $log['student_id'] : null) ? $log['student_id'] : '-') ?></td>
+                                </tr>
+                                <?php endforeach; if ($__n1 === 0): ?>
+                                <tr>
+                                    <td colspan="5" class="table-empty">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        No audit records found.
+                                    </td>
+                                </tr>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Timestamp</th>
-                    <th>User</th>
-                    <th>Action</th>
-                    <th>Details</th>
-                    <th>Student ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $__n1 = 0; foreach ($logs as $log): $__n1++; ?>
-                <tr>
-                    <td class="timestamp"><?= h(pv(isset($log['timestamp']) ? $log['timestamp'] : null)) ?></td>
-                    <td><?= h(pv(isset($log['user']) ? $log['user'] : null)) ?></td>
-                    <td class="action-<?= h(strtolower(explode('_', $log['action'])[0])) ?>">
-                        <?= h(pv(isset($log['action']) ? $log['action'] : null)) ?>
-                    </td>
-                    <td><?= h(pv(isset($log['details']) ? $log['details'] : null)) ?></td>
-                    <td><?= h(truthy(isset($log['student_id']) ? $log['student_id'] : null) ? $log['student_id'] : '-') ?></td>
-                </tr>
-                <?php endforeach; if ($__n1 === 0): ?>
-                <tr>
-                    <td colspan="5" style="text-align: center; color: #64748b;">
-                        No audit records found.
-                    </td>
-                </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
     </div>
+    <script src="<?= url('/static/app.js') ?>"></script>
 </body>
 </html>
