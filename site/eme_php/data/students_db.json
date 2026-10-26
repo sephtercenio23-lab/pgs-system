@@ -1,0 +1,101 @@
+[
+    {
+        "id": "2024-0001",
+        "fname": "Juan",
+        "lname": "Dela Cruz",
+        "full_name": "Dela Cruz, Juan",
+        "course": "MBA",
+        "type": "New Enrollee",
+        "grades": [],
+        "req_checklist": {},
+        "prereq_status": false,
+        "created_at": "2026-02-23T15:48:26.814003",
+        "created_by": "iPraise"
+    },
+    {
+        "id": "2024-0002",
+        "fname": "Maria",
+        "lname": "Clara",
+        "full_name": "Clara, Maria",
+        "course": "MPA",
+        "type": "Continuing",
+        "grades": [],
+        "req_checklist": {},
+        "prereq_status": false,
+        "created_at": "2026-02-23T15:48:26.814039",
+        "created_by": "iPraise"
+    },
+    {
+        "id": "2024-0003",
+        "fname": "Jose",
+        "lname": "Rizal",
+        "full_name": "Rizal, Jose",
+        "course": "PHD-PA",
+        "type": "Transferee",
+        "grades": [
+            {
+                "course_code": "PIC 300",
+                "course_title": "Philosophical Foundations of PCST",
+                "units": 3,
+                "category": "Institutional",
+                "term": "3rd Trimester",
+                "grade": 100.0,
+                "status": "Passed",
+                "created_at": "2026-02-23T15:52:00.287131",
+                "created_by": "iPraise"
+            },
+            {
+                "course_code": "PhDPA 301",
+                "course_title": "Philosophical Foundations of Politics",
+                "units": 3,
+                "category": "Core",
+                "term": "1st Trimester",
+                "grade": 90.0,
+                "status": "Passed",
+                "created_at": "2026-02-23T15:52:07.546255",
+                "created_by": "iPraise"
+            },
+            {
+                "course_code": "PhDPA 307",
+                "course_title": "Practicum in Development Organization",
+                "units": 3,
+                "category": "Major",
+                "term": "2nd Trimester",
+                "grade": 90.0,
+                "status": "Passed",
+                "created_at": "2026-02-23T15:52:18.904798",
+                "created_by": "iPraise"
+            }
+        ],
+        "req_checklist": {},
+        "prereq_status": false,
+        "created_at": "2026-02-23T15:48:26.814058",
+        "created_by": "iPraise"
+    },
+    {
+        "id": "43534646",
+        "fname": "elj",
+        "lname": "carbinel",
+        "full_name": "carbinel, elj",
+        "course": "MBA",
+        "type": "",
+        "grades": [],
+        "req_checklist": {},
+        "prereq_status": false,
+        "created_at": "2026-02-23T15:48:26.814076",
+        "created_by": "iPraise"
+    },
+    {
+        "id": "64352432",
+        "fname": "hguguh",
+        "lname": "kkhbhbhb",
+        "full_name": "kkhbhbhb, hguguh",
+        "course": "MBA",
+        "type": "New Enrolle",
+        "grades": [],
+        "req_checklist": {},
+        "prereq_status": false,
+        "created_at": "2026-02-23T15:48:26.814093",
+        "created_by": "iPraise"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "id": "a8d476ef-2e19-4712-b4d7-d2a426e6e1da",
+        "username": "admin",
+        "password": "$2y$10$bIAlvk1D26lEGBVvJgqP4Oa7LGMI1c1xgfk/v35/fSezr7KMlJo92",
+        "role": "admin",
+        "name": "System Administrator",
+        "created_at": "2026-02-23T13:56:25.308687"
+    },
+    {
+        "id": "e1c51c25-4382-4db3-8ff7-6db74debc68f",
+        "username": "iPraise",
+        "password": "$2y$10$9aQTvSR9P/4ao7JiDRpWTeZ1bssUyOUDoJwv6RGfGezsrWaItEjzm",
+        "name": "eljie m gorospe",
+        "role": "admin",
+        "created_at": "2026-02-23T15:06:13.799969"
+    }
+]
