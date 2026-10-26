@@ -2,161 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management | Graduate School</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f1f5f9;
-            margin: 0;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        .btn-back {
-            padding: 10px 20px;
-            background: #64748b;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        input, select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            box-sizing: border-box;
-        }
-        .btn-submit {
-            width: 100%;
-            padding: 12px;
-            background: #10b981;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .btn-delete {
-            padding: 6px 12px;
-            background: #ef4444;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .alert {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-        .alert-success { background: #dcfce7; color: #166534; }
-        .alert-danger { background: #fee2e2; color: #991b1b; }
-    </style>
+    <link href="<?= url('/static/app.css') ?>" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1><i class="fas fa-users-cog"></i> User Management</h1>
-            <a href="<?= url('/settings') ?>" class="btn-back">Back</a>
-        </div>
+<body class="page-users">
+    <div class="app-body">
+        <?php $active = 'users'; include __DIR__ . '/_sidebar.php'; ?>
 
-        <?php $messages = get_flashed_messages(); ?>
-            <?php if (!empty($messages)): ?>
-                <?php $__n1 = 0; foreach ($messages as list($category, $message)): $__n1++; ?>
-                    <div class="alert alert-<?= h(pv($category)) ?>"><?= h(pv($message)) ?></div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-        
+        <div class="main">
+            <header class="topbar">
+                <button class="sidebar-toggle" onclick="App.toggleSidebar()"><i class="fas fa-bars"></i></button>
+                <div class="titles">
+                    <h1><i class="fas fa-users-cog" style="color: var(--brand);"></i> User Management</h1>
+                    <p class="subtitle">Create accounts and manage roles.</p>
+                </div>
+            </header>
 
-        <div class="card">
-            <h3>Add New User</h3>
-            <form method="POST" action="<?= url('/users/add') ?>">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label>Role</label>
-                    <select name="role">
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-submit">Create User</button>
-            </form>
-        </div>
-
-        <div class="card">
-            <h3>Existing Users</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Role</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $__n2 = 0; foreach ($users as $user): $__n2++; ?>
-                    <tr>
-                        <td><?= h(pv(isset($user['name']) ? $user['name'] : null)) ?></td>
-                        <td><?= h(pv(isset($user['username']) ? $user['username'] : null)) ?></td>
-                        <td><?= h(pv(isset($user['role']) ? $user['role'] : null)) ?></td>
-                        <td>
-                            <form method="POST" action="<?= url('/users/delete/' . rawurlencode($user['id'])) ?>" 
-                                  onsubmit="return confirm('Delete this user?');">
-                                <button type="submit" class="btn-delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
+            <div class="content-container" style="max-width: 900px;">
+                <?php $messages = get_flashed_messages(); ?>
+                <?php if (!empty($messages)): ?>
+                    <?php foreach ($messages as list($category, $message)): ?>
+                        <div class="alert alert-<?= h(pv($category)) ?>">
+                            <i class="fas fa-<?= $category == 'success' ? 'check-circle' : ($category == 'warning' ? 'exclamation-triangle' : 'times-circle') ?>"></i>
+                            <?= h(pv($message)) ?>
+                        </div>
                     <?php endforeach; ?>
-                </tbody>
-            </table>
+                <?php endif; ?>
+
+                <div class="card">
+                    <h3><i class="fas fa-user-plus" style="color: var(--success);"></i> Add New User</h3>
+                    <hr class="card-divider">
+                    <form method="POST" action="<?= url('/users/add') ?>">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="name" required placeholder="Juan Dela Cruz">
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" name="username" required placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" name="password" required placeholder="••••••••">
+                            </div>
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select name="role">
+                                    <option value="user">User</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-submit"><i class="fas fa-plus"></i> Create User</button>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-users" style="color: var(--info);"></i> Existing Users</h3>
+                    <hr class="card-divider">
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th style="text-align:right;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($users as $user): ?>
+                                <tr>
+                                    <td class="cell-name"><strong><?= h(pv(isset($user['name']) ? $user['name'] : null)) ?></strong></td>
+                                    <td><?= h(pv(isset($user['username']) ? $user['username'] : null)) ?></td>
+                                    <td>
+                                        <span class="badge <?= (isset($user['role']) ? $user['role'] : '') === 'admin' ? 'badge-brand' : 'badge-neutral' ?>">
+                                            <?= h(pv(isset($user['role']) ? $user['role'] : null)) ?>
+                                        </span>
+                                    </td>
+                                    <td style="text-align:right;">
+                                        <form method="POST" action="<?= url('/users/delete/' . rawurlencode($user['id'])) ?>"
+                                              style="display:inline;" onsubmit="return confirm('Delete this user?');">
+                                            <button type="submit" class="btn btn-del">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="<?= url('/static/app.js') ?>"></script>
 </body>
 </html>

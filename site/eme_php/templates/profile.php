@@ -6,158 +6,9 @@
     <title>Academic Evaluation | <?= h(pv(isset($student['full_name']) ? $student['full_name'] : null)) ?></title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="<?= url('/static/app.css') ?>" rel="stylesheet">
     <style>
-        :root { 
-            --primary: #0f172a; 
-            --accent: #2563eb; 
-            --bg: #f1f5f9; 
-            --success: #10b981; 
-            --danger: #ef4444; 
-            --warning: #f59e0b; 
-            --header-green: #064e3b;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg); 
-            padding: 0; 
-            color: #1e293b; 
-            margin: 0; 
-            line-height: 1.5;
-        }
-        
-        .navbar { 
-            background: var(--primary); 
-            padding: 1rem 2rem; 
-            color: white; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .navbar a { color: white; text-decoration: none; font-weight: 500; }
-        
-        .main-wrapper { 
-            max-width: 1400px; 
-            margin: 20px auto; 
-            display: grid; 
-            grid-template-columns: 280px 1fr; 
-            gap: 24px; 
-            padding: 0 20px;
-        }
-        
-        .card { 
-            background: white; 
-            padding: 2rem; 
-            border-radius: 1rem; 
-            box-shadow: var(--card-shadow); 
-            margin-bottom: 2rem; 
-            border: 1px solid #e2e8f0;
-        }
-
-        .assessment-header { text-align: center; padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid #f1f5f9; }
-        .profile-img { width: 100px; height: 100px; background: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: #94a3b8; }
-        
-        .stat-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; }
-        .stat-val { font-weight: 600; color: var(--primary); }
-
-        /* Units Display Box */
-        .units-display {
-            background: linear-gradient(135deg, #064e3b 0%, #10b981 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .units-display h4 {
-            margin: 0 0 0.5rem 0;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0.9;
-        }
-        .units-display .units-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin: 0;
-            line-height: 1;
-        }
-        .units-display .units-label {
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-            opacity: 0.9;
-        }
-
-        table { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 1rem; }
-        th { text-align: left; background: #f8fafc; padding: 1rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; border-bottom: 2px solid #e2e8f0; }
-        td { padding: 1rem; border-bottom: 1px solid #f1f5f9; font-size: 0.9rem; vertical-align: middle; }
-
-        .btn { padding: 0.6rem 1.2rem; border-radius: 0.5rem; cursor: pointer; border: none; font-size: 0.875rem; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center; font-weight: 600; }
-        .btn-primary { background: var(--header-green); color: white; }
-        .btn-blue { background: var(--accent); color: white; }
-        .btn-blue:hover { background: #1d4ed8; }
-        .btn-outline { border: 1px solid #e2e8f0; background: white; color: #64748b; }
-        .btn-outline:hover { background: #f8fafc; color: var(--accent); border-color: var(--accent); }
-        .btn-del { background: #fee2e2; color: #991b1b; }
-
-        .badge { padding: 0.35rem 0.75rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
-        .badge-passed { background: #dcfce7; color: #166534; }
-        .badge-failed { background: #fee2e2; color: #991b1b; }
-        .badge-credited { background: #dbeafe; color: #1e40af; }
-        .badge-warning { background: #fef3c7; color: #92400e; }
-
-        .req-group { background: #f8fafc; padding: 1.5rem; border-radius: 0.75rem; border: 1px solid #e2e8f0; }
-        .req-group h4 { margin-top: 0; color: var(--header-green); border-bottom: 1px solid #cbd5e1; padding-bottom: 0.5rem; margin-bottom: 1rem; }
-        .req-label { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; cursor: pointer; font-size: 0.9rem; }
-        .req-label input { width: 1.2rem; height: 1.2rem; accent-color: var(--accent); }
-
-        .prereq-section { 
-            margin-top: 25px; 
-            border-left: 5px solid #f59e0b; 
-            background: #fff;
-        }
-        .prereq-header { 
-            background: #fffbeb; 
-            padding: 15px; 
-            border-bottom: 1px solid #fef3c7;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .prereq-header h3 { margin: 0; font-size: 18px; color: #92400e; }
-
-        .warning-box {
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            color: #92400e;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .warning-box i { margin-right: 0.5rem; }
-
-        .info-box {
-            background: #dbeafe;
-            border: 1px solid #3b82f6;
-            color: #1e40af;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(4px); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: white; padding: 2.5rem; border-radius: 1rem; width: 100%; max-width: 500px; position: relative; }
-        .close-btn { position: absolute; top: 1.25rem; right: 1.25rem; cursor: pointer; font-size: 1.5rem; color: #94a3b8; }
-        .form-group { margin-bottom: 1.25rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.85rem; color: #475569; }
-        .form-control { width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; box-sizing: border-box; font-family: inherit; }
-        .form-control:focus { outline: 2px solid #3b82f633; border-color: var(--accent); }
-
+        /* Screen helpers kept page-local */
         /* PRINT STYLES - Clean Professional Layout */
         @media print {
             @page {
@@ -173,7 +24,7 @@
             
             /* Hide navigation and buttons */
             .navbar,
-            .sidebar,
+            .profile-panel,
             .btn,
             .modal,
             .prereq-section,
@@ -446,7 +297,7 @@
         }
     </style>
 </head>
-<body>
+<body class="page-profile">
 
     <!-- PRINT HEADER - Only visible when printing -->
     <div class="print-only print-header">
@@ -463,14 +314,14 @@
 
     <nav class="navbar no-print">
         <a href="<?= url('/') ?>"><i class="fas fa-chevron-left"></i> Dashboard</a>
-        <div style="font-weight: 800; letter-spacing: 1px;">STUDENT EVALUATION</div>
+        <div class="nav-title"><i class="fas fa-graduation-cap"></i> STUDENT EVALUATION</div>
         <div style="width: 100px; text-align: right;">
             <i class="fas fa-circle-user fa-lg"></i>
         </div>
     </nav>
 
     <div class="main-wrapper">
-        <div class="sidebar no-print">
+        <div class="profile-panel no-print">
             <div class="card" style="position: sticky; top: 100px;">
                 <div class="assessment-header">
                     <div class="profile-img">
@@ -688,10 +539,10 @@
                 
                 <?php $__n2 = 0; foreach ($organized_subjects as $term => $subjects): $__n2++; ?>
                 <div style="margin-bottom: 1.5rem;">
-                    <div style="background: #f1f5f9; padding: 0.75rem 1rem; border-radius: 0.5rem; font-weight: 700; color: var(--primary); font-size: 0.9rem; display: flex; justify-content: space-between;" class="no-print">
+                    <div class="term-header no-print">
                         <span><?= h(pv($term)) ?></span>
                         <?php if (truthy(isset($term_gwas[$term]) ? $term_gwas[$term] : null)): ?>
-                        <span style="font-weight: 400; font-size: 0.8rem; color: #64748b;">Term GWA: <?= number_format((float)$term_gwas[$term], 2, '.', '') ?></span>
+                        <span class="term-gwa">Term GWA: <?= number_format((float)$term_gwas[$term], 2, '.', '') ?></span>
                         <?php endif; ?>
                     </div>
                     <!-- Print version of term header -->
@@ -812,8 +663,8 @@
                     <h3>Add Manual / Pre-requisite Subject</h3>
                 </div>
                 <div style="padding: 20px;">
-                    <form id="subjectForm" action="<?= url('/add_manual_subject/' . rawurlencode($student['id'])) ?>" method="POST" 
-                          style="background: #f1f5f9; padding: 20px; border-radius: 8px;">
+                    <form id="subjectForm" action="<?= url('/add_manual_subject/' . rawurlencode($student['id'])) ?>" method="POST"
+                          class="form-block">
                         <div style="display: grid; grid-template-columns: 1fr 2fr 1fr 1fr 1fr auto; gap: 15px; align-items: end;">
                             <div class="form-group" style="margin-bottom: 0;">
                                 <label style="font-size: 11px; font-weight: 700; color: #64748b;">Subject Code</label>
@@ -1035,5 +886,6 @@
             document.getElementById('inputCode').focus();
         }
     </script>
+    <script src="<?= url('/static/app.js') ?>"></script>
 </body>
 </html>
